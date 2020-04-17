@@ -1,0 +1,14 @@
+import React from 'react';
+
+export const LinkCard = ({link}) => {
+  return (
+    <div className="p-4">
+      <h2>Link</h2>
+
+      <p>Shorted: <a href={link.to} target='_blank' rel='noopener noreferrer'>{link.to}</a></p>
+      <p>From: <a href={link.from} target='_blank' rel='noopener noreferrer'>{link.from}</a></p>
+      <p>Numbers of clicks on the link: <strong>{link.clicks}</strong></p>
+      <p>The date of create: <strong>{new Date(link.date).toLocaleDateString()}</strong></p>
+    </div>
+  )
+};
