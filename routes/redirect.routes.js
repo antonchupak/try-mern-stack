@@ -16,7 +16,7 @@ router.get('/:code', async (request, response) => {
       return response.redirect(link.from);
     }
 
-    return response.status(404).json('Link not found')
+    return response.status(404).json({message: 'Link not found'});
 
   } catch (e) {
     response.status(500).json({ message: `Something wrong, try again, ${e}` });

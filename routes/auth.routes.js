@@ -69,13 +69,13 @@ router.post(
       const user = await User.findOne({ email });
 
       if (!user) {
-        return response.status(400).json('User not found');
+        return response.status(400).json({message: 'User not found'});
       }
 
       const isPasswordMatch = await bcrypt.compare(password, user.password);
 
       if (!isPasswordMatch) {
-        return response.status(400).json('Password is wrong, try again');
+        return response.status(400).json({message: 'Password is wrong, try again'});
       }
 
       const token = jwt.sign(
